@@ -1,16 +1,19 @@
 # 作業1: 阿克曼函式(Ackermann Function)
 
 ### 題目定義
+---
+
 $$Ack(m, n)=\begin{cases}
     n + 1 &\text{if } m=0 \\
     Ack(m-1,\space 1) &\text{if } n=0 \\
     Ack(m-1, \space Ack(m, \space n - 1)) &\text {else}
 \end{cases}$$
-
 ### 解題說明
+---
 - 使用遞迴解來解決此問題
 - 使用非遞迴解來解決此問題
 
+---
 #### 1. 使用遞迴解
 
 ##### 建立一函式 
@@ -23,6 +26,7 @@ $$Ack(m, n)=\begin{cases}
 ##### 如果 m > 0 and n > 0
 > return Ack(m - 1, Ack(m, n - 1))
 
+---
 #### 2. 使用非遞迴解
 ##### 函式規則如下
 
@@ -67,26 +71,37 @@ switch (m)
 
 ### 效能分析
 #### 1.遞迴
+---
 ##### 當 m = 0，只須回傳n + 1
 ##### <center>時間複雜度: O(1)<center>
 ##### <center>空間複雜度: O(1)<center>
+
+---
 
 ##### 當 m = 1，需遞迴Ack(0, Ack(1, n - 1))，需要重複計算直到n = 0，過程中需要執行n + 1次
 
 ##### <center>時間複雜度: O(n)<center>
 ##### <center>空間複雜度: O(n)<center>
 
+---
+
 ##### 當 m = 2，需遞迴Ack(1, Ack(2, n - 1))，而需要找到n = 1所有可能，過程中需要執行2 x n + 3次
 ##### <center>時間複雜度: O(n)<center>
 ##### <center>空間複雜度: O(n)<center>
+
+---
 
 ##### 當 m = 3，需遞迴Ack(2, Ack(3, n - 1))，時間複雜度將隨n的大小成指數增加
 ##### <center>時間複雜度: $O(n^2) $<center>
 ##### <center>空間複雜度: $O(n^2) $<center>
 
+---
+
 ##### 當m = 4，時間複雜度為不斷 ^ 2 直到n - 1次 n ^ 2 ^ 2....
 ##### <center>時間複雜度: $O(2^{2^n}) $<center>
 ##### <center>空間複雜度: $O(2^{2^n}) $<center>
+
+---
 
 #### 2.非遞迴
 ##### 因為只需知道m及n就可得知結果，並且不須陣列儲存計算結果
